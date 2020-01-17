@@ -1,0 +1,47 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: dubbo-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 1
+      min-idle: 10
+      max-active: 20
+      max-wait: 60000 #连接超时配置
+      time-between-eviction-runs-millis: 2000 #多久进行检测一次空闲的连接，单位毫秒
+      #               max-evictable-idle-time-millis: 900000   #连接最大生存时间，单位毫秒
+      min-evictable-idle-time-millis: 600000   #  连接最小生存时间
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      keep-alive: true
+      filter:
+        stat:
+          slow-sql-millis: 10000   #配置监控拦截，慢sql，10秒，并且通过日志输出执行慢的SQL
+          log-slow-sql: true
+dubbo:
+  application:
+    name: dubbo-provider
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://192.168.99.100:2181
+  provider: 1000
+
+logging:
+  level:
+    # 配置mapper接口的包路径
+    com.xiaoze.provider.mapper: debug
+demo:
+  service:
+    version: 1.0.0
+
+

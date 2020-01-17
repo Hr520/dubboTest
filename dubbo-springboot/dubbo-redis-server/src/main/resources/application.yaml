@@ -1,0 +1,26 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: dubbo-redis-server
+  redis:
+    remote: false        #cachecloud 获取
+    port: 6379
+    timeout: 15000
+    password: dyj20199
+    host: redis-host
+dubbo:
+  application:
+    name: dubbo-redis-server
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://192.168.99.100:2181
+  provider: 1000
+
+demo:
+  service:
+    version: 1.0.0
+
+

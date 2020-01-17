@@ -1,0 +1,19 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: dubbo-consumer
+dubbo:
+  application:
+    name: dubbo-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://192.168.99.100:2181
+  provider: 1000
+demo:
+  service:
+    version: 1.0.0
+
+

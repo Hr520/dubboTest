@@ -1,0 +1,3 @@
+com\xiaoze\redis\DubboRedisServerApplication.class
+com\xiaoze\redis\config\RedisTemplateConfig.class
+com\xiaoze\redis\service\RedisServiceImpl.class
